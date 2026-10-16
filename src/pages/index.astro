@@ -1,0 +1,127 @@
+---
+import "../styles/global.css";
+
+const projects = [
+  {
+    tag: "Flagship Project",
+    title: "Telco Customer Churn",
+    blurb:
+      "Full machine-learning lifecycle on the IBM Telco churn dataset: cleaning and feature prep in Python, three models trained and evaluated with a stratified holdout, and the class-imbalance problem handled and stated honestly. A companion Streamlit app lets anyone score a customer across all 19 features in seconds.",
+    metrics: "80% accuracy · 57% churn recall · 65% precision (Logistic Regression, 1,407 test rows)",
+    links: [
+      { label: "View the repo", href: "https://github.com/cruqza/Teleco_churn-project" },
+      { label: "Demo code", href: "https://github.com/cruqza/churn-demo" },
+    ],
+    image: null,
+    imageAlt: null,
+  },
+  {
+    tag: "Supporting Project",
+    title: "Haraka Rides — SQL Pipeline & Power BI",
+    blurb:
+      "A rides-data pipeline from raw CSVs through PostgreSQL staging and cleaning layers to a Power BI dashboard, with the whole flow documented in a mermaid diagram and reproducible sample data in the repo.",
+    metrics: "PostgreSQL · 2-layer SQL staging · Power BI dashboard",
+    links: [{ label: "View the repo", href: "https://github.com/cruqza/Haraka_rides-project" }],
+    image: null,
+    imageAlt: null,
+  },
+  {
+    tag: "Supporting Project",
+    title: "Safari Travels — Business Analytics",
+    blurb:
+      "Answering a CEO's questions about route revenue, route popularity, revenue-per-seat and driver performance with a documented SQL pipeline into Power BI. The README leads with the business problem and shows the dashboard's headline views.",
+    metrics: "SQL analytics · 342-ride staging export · Power BI dashboard",
+    links: [{ label: "View the repo", href: "https://github.com/cruqza/Safari-Travels-Project" }],
+    image: "/safari_dashboard_summary.png",
+    imageAlt:
+      "Headline views of the Safari Travels dashboard: route revenue, popularity and revenue per seat",
+  },
+];
+
+const skills = [
+  "Python",
+  "pandas",
+  "scikit-learn",
+  "SQL",
+  "PostgreSQL",
+  "Power BI",
+  "matplotlib",
+  "Streamlit",
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Erickson Mugendi Nyaga — Data Analyst & Data Scientist</title>
+    <meta
+      name="description"
+      content="Portfolio of Erickson Mugendi Nyaga, an entry-level data analyst and data scientist: machine learning, SQL pipelines and BI dashboards, with working projects on GitHub."
+    />
+  </head>
+  <body>
+    <header class="hero">
+      <p class="kicker">Erickson Mugendi Nyaga</p>
+      <h1>Data analyst &amp; data scientist.<br />I build models and pipelines that answer real questions.</h1>
+      <p class="sub">
+        Entry-level hybrid data analyst / data scientist, Kenya-based and open to remote
+        international work. Every project below runs end-to-end: raw data in, verified
+        answer out.
+      </p>
+    </header>
+
+    <main>
+      <section aria-label="Projects">
+        {projects.map((p) => (
+          <article class:list={["card", { flagship: p.tag === "Flagship Project" }]}>
+            <p class="tag">{p.tag}</p>
+            <h2>{p.title}</h2>
+            <p class="blurb">{p.blurb}</p>
+            <p class="metrics">{p.metrics}</p>
+            {p.image && <img src={p.image} alt={p.imageAlt} loading="lazy" />}
+            <p class="links">
+              {p.links.map((l) => (
+                <a href={l.href} target="_blank" rel="noopener noreferrer">
+                  {l.label} →
+                </a>
+              ))}
+            </p>
+          </article>
+        ))}
+      </section>
+
+      <section class="skills" aria-label="Skills">
+        <h2>Tools I work with</h2>
+        <ul>
+          {skills.map((s) => <li>{s}</li>)}
+        </ul>
+      </section>
+
+      <section class="about" aria-label="About">
+        <h2>About</h2>
+        <p>
+          I hold a BSc in Applied Optics and Lasers and retrained as a data analyst /
+          data scientist through the LuxDevHQ bootcamp. The physics background shows up
+          in how I work: state the question precisely, measure before claiming, and show
+          the numbers behind every conclusion.
+        </p>
+        <p>
+          The three projects above are the proof — each one has a documented pipeline,
+          tests guarding its claims, and a README a reviewer can follow without asking
+          me anything.
+        </p>
+      </section>
+    </main>
+
+    <footer class="contact" aria-label="Contact">
+      <h2>Get in touch</h2>
+      <p>
+        <a href="mailto:mugendierickson@gmail.com">mugendierickson@gmail.com</a>
+        <span aria-hidden="true"> · </span>
+        <a href="https://github.com/cruqza" target="_blank" rel="noopener noreferrer">github.com/cruqza</a>
+      </p>
+    </footer>
+  </body>
+</html>
