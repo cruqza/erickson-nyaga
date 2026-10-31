@@ -1,52 +1,96 @@
 ---
 import "../styles/global.css";
 
-const projects = [
+const personas = [
   {
-    tag: "Flagship Project",
-    title: "Telco Customer Churn",
-    blurb:
-      "Full machine-learning lifecycle on the IBM Telco churn dataset: cleaning and feature prep in Python, three models trained and evaluated with a stratified holdout, and the class-imbalance problem handled and stated honestly. A companion Streamlit app lets anyone score a customer across all 19 features in seconds.",
-    metrics: "80% accuracy · 57% churn recall · 65% precision (Logistic Regression, 1,407 test rows)",
-    links: [
-      { label: "View the repo", href: "https://github.com/cruqza/Teleco_churn-project" },
-      { label: "Demo code", href: "https://github.com/cruqza/churn-demo" },
+    name: "Data Analytics & Business Insights",
+    color: "--persona-accent",
+    projects: [
+      {
+        tag: "Project 1 — Analytics",
+        title: "Safari Travels — Route Revenue & Driver Performance",
+        blurb: "SQL analytics pipeline answering a CEO's questions on route revenue, route popularity, revenue per seat, and driver performance, with a documented Power BI dashboard. The README leads with the business problem and shows the dashboard's headline views.",
+        metrics: "SQL analytics · 342-ride staging export · Power BI dashboard",
+        links: [{ label: "View the repo", href: "https://github.com/cruqza/Safari-Travels-Project" }],
+        image: "/safari_dashboard_summary.png",
+        imageAlt: "Headline views of the Safari Travels analytics dashboard: route revenue, route popularity and revenue per seat",
+      },
+      {
+        tag: "Project 2 — Analytics",
+        title: "Tembo-Hotel-Data-Analysis",
+        blurb: "Hotel booking data analysis that moves raw bookings into cleaned features and answers a business question about occupancy, revenue and demand patterns. Demonstrates the end-to-end analytics loop: question, clean, explore, report.",
+        metrics: "Python · pandas · SQL · Power BI",
+        links: [{ label: "View the repo", href: "https://github.com/cruqza/Tembo-Hotel-Data-Analysis" }],
+        image: null,
+        imageAlt: null,
+      },
     ],
-    image: null,
-    imageAlt: null,
   },
   {
-    tag: "Supporting Project",
-    title: "Haraka Rides — SQL Pipeline & Power BI",
-    blurb:
-      "A rides-data pipeline from raw CSVs through PostgreSQL staging and cleaning layers to a Power BI dashboard, with the whole flow documented in a mermaid diagram and reproducible sample data in the repo.",
-    metrics: "PostgreSQL · 2-layer SQL staging · Power BI dashboard",
-    links: [{ label: "View the repo", href: "https://github.com/cruqza/Haraka_rides-project" }],
-    image: null,
-    imageAlt: null,
+    name: "Machine Learning & Data Science",
+    color: "--accent",
+    projects: [
+      {
+        tag: "Flagship — ML",
+        title: "Telco Customer Churn",
+        blurb: "Full machine-learning lifecycle on the IBM Telco churn dataset: cleaning and feature prep in Python, three models trained and evaluated with a stratified holdout, and the class-imbalance problem handled and stated honestly. A companion Streamlit app lets anyone score a customer across all 19 features in seconds.",
+        metrics: "80% accuracy · 57% churn recall · 65% precision (Logistic Regression, 1,407 test rows)",
+        links: [
+          { label: "View the repo", href: "https://github.com/cruqza/Teleco_churn-project" },
+          { label: "Demo code", href: "https://github.com/cruqza/churn-demo" },
+        ],
+        image: null,
+        imageAlt: null,
+      },
+      {
+        tag: "Project 4 — ML",
+        title: "Churn Demo — Interactive Scoring App",
+        blurb: "Standalone demo code that reproduces the Telco Customer Churn results: the same preprocessing, the same stratified holdout, and the same Logistic Regression model. Built to let a reviewer press 'score' and see a verified answer come out of raw data.",
+        metrics: "Streamlit · scikit-learn · pandas",
+        links: [{ label: "View the demo", href: "https://github.com/cruqza/churn-demo" }],
+        image: null,
+        imageAlt: null,
+      },
+    ],
   },
   {
-    tag: "Supporting Project",
-    title: "Safari Travels — Business Analytics",
-    blurb:
-      "Answering a CEO's questions about route revenue, route popularity, revenue-per-seat and driver performance with a documented SQL pipeline into Power BI. The README leads with the business problem and shows the dashboard's headline views.",
-    metrics: "SQL analytics · 342-ride staging export · Power BI dashboard",
-    links: [{ label: "View the repo", href: "https://github.com/cruqza/Safari-Travels-Project" }],
-    image: "/safari_dashboard_summary.png",
-    imageAlt:
-      "Headline views of the Safari Travels dashboard: route revenue, popularity and revenue per seat",
+    name: "Data Engineering & Pipelines",
+    color: "--accent",
+    projects: [
+      {
+        tag: "Project 5 — Pipelines",
+        title: "Haraka Rides — SQL Pipeline & Power BI",
+        blurb: "A rides-data pipeline from raw CSVs through PostgreSQL staging and cleaning layers to a Power BI dashboard, with the whole flow documented in a Mermaid diagram and reproducible sample data in the repo.",
+        metrics: "PostgreSQL · 2-layer SQL staging · Power BI dashboard",
+        links: [{ label: "View the repo", href: "https://github.com/cruqza/Haraka_rides-project" }],
+        image: null,
+        imageAlt: null,
+      },
+      {
+        tag: "Project 6 — Pipelines",
+        title: "Sales-Analytics",
+        blurb: "Sales data analytics pipeline that cleans raw sales records, prepares them for analysis, and answers business questions about performance and trends. Demonstrates the data-engineering side of turning raw data into verified business answers.",
+        metrics: "Python · pandas · SQL",
+        links: [{ label: "View the repo", href: "https://github.com/cruqza/Sales-Analytics" }],
+        image: null,
+        imageAlt: null,
+      },
+    ],
   },
 ];
 
+const projects = personas.flatMap((p) => p.projects);
+
 const skills = [
   "Python",
+  "SQL",
+  "Power BI",
+  "Excel",
+  "Tableau",
+  "Statistics / ML fundamentals",
   "pandas",
   "scikit-learn",
-  "SQL",
   "PostgreSQL",
-  "Power BI",
-  "matplotlib",
-  "Streamlit",
 ];
 ---
 
@@ -58,59 +102,89 @@ const skills = [
     <title>Erickson Mugendi Nyaga — Data Analyst & Data Scientist</title>
     <meta
       name="description"
-      content="Portfolio of Erickson Mugendi Nyaga, an entry-level data analyst and data scientist: machine learning, SQL pipelines and BI dashboards, with working projects on GitHub."
+      content="Portfolio of Erickson Mugendi Nyaga, an entry-level data analyst and data scientist: data analytics and business insights, machine learning pipelines and data engineering. I build end-to-end pipelines and ML models that turn raw data into verified business answers."
     />
   </head>
   <body>
     <header class="hero">
       <p class="kicker">Erickson Mugendi Nyaga</p>
-      <h1>Data analyst &amp; data scientist.<br />I build models and pipelines that answer real questions.</h1>
+      <h1>Data Analyst &amp; Data Scientist.<br />I build data pipelines and ML models that turn raw data into verified business answers.</h1>
       <p class="sub">
-        Entry-level hybrid data analyst / data scientist, Kenya-based and open to remote
-        international work. Every project below runs end-to-end: raw data in, verified
-        answer out.
+        Kenya-based and open to remote international work. I do business analytics to give insights and directions — every project runs end-to-end: raw data in, verified answer out.
       </p>
     </header>
 
     <main>
-      <section aria-label="Projects">
-        {projects.map((p) => (
-          <article class:list={["card", { flagship: p.tag === "Flagship Project" }]}>
-            <p class="tag">{p.tag}</p>
-            <h2>{p.title}</h2>
-            <p class="blurb">{p.blurb}</p>
-            <p class="metrics">{p.metrics}</p>
-            {p.image && <img src={p.image} alt={p.imageAlt} loading="lazy" />}
-            <p class="links">
-              {p.links.map((l) => (
-                <a href={l.href} target="_blank" rel="noopener noreferrer">
-                  {l.label} →
-                </a>
-              ))}
-            </p>
-          </article>
-        ))}
+      <section class="projects" aria-label="Projects">
+        <p class="section-tag">Featured projects</p>
+        <h2 class="section-title">Work that answers real business questions</h2>
+        <div class="project-grid">
+          {
+            projects.map((p) => (
+              <article class="card">
+                <p class="tag">{p.tag}</p>
+                <h3>{p.title}</h3>
+                <p class="blurb">{p.blurb}</p>
+                <p class="metrics">{p.metrics}</p>
+                {p.image && <img src={p.image} alt={p.imageAlt} loading="lazy" />}
+                <p class="links">
+                  {p.links.map((l) => (
+                    <a href={l.href} target="_blank" rel="noopener noreferrer">
+                      {l.label} →
+                    </a>
+                  ))}
+                </p>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="projects" aria-label="All projects">
+        <p class="section-tag">All projects</p>
+        <h2 class="section-title">GitHub projects, grouped by work persona</h2>
+        <p class="section-note">
+          Six projects drawn from my GitHub, grouped by the work persona they demonstrate. Each links to its repository with a summary you can verify in seconds.
+        </p>
+        <div class="persona-groups">
+          {
+            personas.map((p) => (
+              <div class="persona-group">
+                <p class="tag">{p.name}</p>
+                <h3>{p.projects.map((pp) => pp.title).join(" &middot; &middot; &middot;") || "No projects"}</h3>
+                <p class="blurb">{p.projects.map((pp) => pp.blurb).join(" ") || "This persona has no projects yet."}</p>
+                <p class="links">
+                  {p.projects.map((pp) => (
+                    pp.links.map((l) => (
+                      <a href={l.href} target="_blank" rel="noopener noreferrer">
+                        {l.label} →
+                      </a>
+                    ))
+                  ))}
+                </p>
+              </div>
+            ))
+          }
+        </div>
       </section>
 
       <section class="skills" aria-label="Skills">
         <h2>Tools I work with</h2>
-        <ul>
-          {skills.map((s) => <li>{s}</li>)}
+        <ul class="skills-grid">
+          {
+            skills.map((s) => <li>{s}</li>)
+          }
         </ul>
       </section>
 
       <section class="about" aria-label="About">
-        <h2>About</h2>
+        <p class="section-tag">About</p>
+        <h2 class="section-title">I turn uncertainty into decisions</h2>
         <p>
-          I hold a BSc in Applied Optics and Lasers and retrained as a data analyst /
-          data scientist through the LuxDevHQ bootcamp. The physics background shows up
-          in how I work: state the question precisely, measure before claiming, and show
-          the numbers behind every conclusion.
+          I hold a BSc in Applied Optics and Lasers and retrained as a data analyst / data scientist through the LuxDevHQ bootcamp. The physics background shows up in how I work: state the question precisely, measure before claiming, and show the numbers behind every conclusion.
         </p>
         <p>
-          The three projects above are the proof — each one has a documented pipeline,
-          tests guarding its claims, and a README a reviewer can follow without asking
-          me anything.
+          My approach is the same for every project: define the business question, clean and shape the data, build the model or pipeline, and verify the result before it leaves my machine. The three projects above are the proof — each one has a documented pipeline, tests guarding its claims, and a README a reviewer can follow without asking me anything.
         </p>
       </section>
     </main>
