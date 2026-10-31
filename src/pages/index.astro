@@ -76,62 +76,6 @@ const skills = [
   "Git",
 ];
 
-const personas = [
-  {
-    name: "Data Analytics & Business Insights",
-    color: "--persona-accent",
-    projects: [
-      {
-        tag: "Project 1 — Analytics",
-        title: "Safari Travels — Route Revenue & Driver Performance",
-        blurb: "SQL analytics pipeline answering a CEO's questions on route revenue, route popularity, revenue per seat and driver performance, with a documented Power BI dashboard.",
-        links: [{ label: "View the repo", href: "https://github.com/cruqza/Safari-Travels-Project" }],
-      },
-      {
-        tag: "Project 2 — Analytics",
-        title: "Tembo-Hotel-Data-Analysis",
-        blurb: "Hotel booking data analysis that moves raw bookings into cleaned features and answers a business question about occupancy, revenue and demand patterns. Demonstrates the end-to-end analytics loop: question, clean, explore, report.",
-        links: [{ label: "View the repo", href: "https://github.com/cruqza/Tembo-Hotel-Data-Analysis" }],
-      },
-    ],
-  },
-  {
-    name: "Machine Learning & Data Science",
-    color: "--accent",
-    projects: [
-      {
-        tag: "Flagship — ML",
-        title: "Telco Customer Churn",
-        blurb: "Full machine-learning lifecycle on the IBM Telco churn dataset: cleaning and feature prep, three models evaluated with a stratified holdout, and class imbalance handled and stated honestly.",
-        links: [{ label: "View the repo", href: "https://github.com/cruqza/Teleco_churn-project" }],
-      },
-      {
-        tag: "Project 4 — ML",
-        title: "Churn Demo — Interactive Scoring App",
-        blurb: "Standalone demo code that reproduces the Telco Customer Churn results: the same preprocessing, the same stratified holdout, and the same Logistic Regression model.",
-        links: [{ label: "View the demo", href: "https://github.com/cruqza/churn-demo" }],
-      },
-    ],
-  },
-  {
-    name: "Data Engineering & Pipelines",
-    color: "--accent",
-    projects: [
-      {
-        tag: "Project 5 — Pipelines",
-        title: "Haraka Rides — SQL Pipeline & Power BI",
-        blurb: "A rides-data pipeline from raw CSVs through PostgreSQL staging and cleaning layers to a Power BI dashboard, with the whole flow documented in a Mermaid diagram and reproducible sample data in the repo.",
-        links: [{ label: "View the repo", href: "https://github.com/cruqza/Haraka_rides-project" }],
-      },
-      {
-        tag: "Project 6 — Pipelines",
-        title: "Sales-Analytics",
-        blurb: "Sales data analytics pipeline that cleans raw sales records, prepares them for analysis, and answers business questions about performance and trends.",
-        links: [{ label: "View the repo", href: "https://github.com/cruqza/Sales-Analytics" }],
-      },
-    ],
-  },
-];
 ---
 
 <!doctype html>
@@ -155,7 +99,6 @@ const personas = [
       </p>
       <p class="impact">
         <span>6 featured projects</span>
-        <span>3 work personas</span>
         <span>ML · analytics · pipelines</span>
         <span>SQL · Python · Power BI</span>
       </p>
@@ -196,40 +139,6 @@ const personas = [
         </div>
       </section>
 
-      <section class="projects" aria-label="All projects">
-        <p class="section-tag">All projects</p>
-        <h2 class="section-title">GitHub projects, grouped by work persona</h2>
-        <p class="section-note">
-          Six projects drawn from my GitHub, grouped by the work persona they demonstrate. Each links to its repository with a summary you can verify in seconds.
-        </p>
-        <div class="persona-groups">
-          {
-            personas.map((p) => (
-              <div class="persona-group">
-                <p class="tag">{p.name}</p>
-                <h3 style:color={p.color}>{p.projects.map((pp) => pp.title).join(" &middot; &middot; &middot; ") || "No projects"}</h3>
-                <div class="persona-cards">
-                  {
-                    p.projects.map((pp) => (
-                      <div class="mini-card">
-                        <p class="mini-tag">{pp.tag}</p>
-                        <p class="mini-title">{pp.title}</p>
-                        <p class="mini-blurb">{pp.blurb}</p>
-                        <p class="mini-links">
-                          {pp.links.map((l) => (
-                            <a href={l.href} target="_blank" rel="noopener noreferrer">{l.label} →</a>
-                          ))}
-                        </p>
-                      </div>
-                    ))
-                  }
-                </div>
-              </div>
-            ))
-          }
-        </div>
-      </section>
-
       <section class="skills" aria-label="Skills">
         <h2>Tools I work with</h2>
         <ul class="skills-grid">
@@ -246,7 +155,7 @@ const personas = [
           I hold a BSc in Applied Optics and Lasers and retrained as a data analyst / data scientist through the LuxDevHQ bootcamp. The physics background shows up in how I work: state the question precisely, measure before claiming, and show the numbers behind every conclusion.
         </p>
         <p>
-          My approach is the same for every project: define the business question, clean and shape the data, build the model or pipeline, and verify the result before it leaves my machine. The three projects above are the proof — each one has a documented pipeline, tests guarding its claims, and a README a reviewer can follow without asking me anything.
+          My approach is the same for every project: define the business question, clean and shape the data, build the model or pipeline, and verify the result before it leaves my machine. The projects above are the proof — each one has a documented pipeline, tests guarding its claims, and a README a reviewer can follow without asking me anything.
         </p>
       </section>
     </main>
