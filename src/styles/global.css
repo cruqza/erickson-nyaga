@@ -12,13 +12,9 @@
   --shadow: 0 1px 3px rgba(26, 36, 36, 0.08), 0 1px 2px rgba(26, 36, 36, 0.04);
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
@@ -29,9 +25,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-main,
-header.hero,
-footer.contact {
+main, header.hero, footer.contact {
   max-width: 960px;
   margin: 0 auto;
   padding: 0 1.25rem;
@@ -66,14 +60,38 @@ footer.contact {
   color: var(--ink-soft);
   font-size: 1.08rem;
   max-width: 42rem;
-  margin: 0;
+  margin: 0 0 0.75rem;
+}
+
+.impact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.25rem;
+  margin: 0.25rem 0 0.25rem;
+  padding: 0.85rem 1rem;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+
+.impact span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.impact span::before {
+  content: "▸";
+  font-weight: 800;
+  opacity: 0.7;
 }
 
 /* ---------- Sections ---------- */
 
-section {
-  margin: 2.75rem 0;
-}
+section { margin: 2.75rem 0; }
 
 .section-tag {
   color: var(--accent);
@@ -98,11 +116,7 @@ section {
   max-width: 60ch;
 }
 
-/* ---------- Cards / project grid ---------- */
-
-.projects {
-  padding-bottom: 1.5rem;
-}
+/* ---------- Featured cards (recruiter-first) ---------- */
 
 .project-grid {
   display: grid;
@@ -115,61 +129,96 @@ section {
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 1.5rem;
-  margin-bottom: 0;
   box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
+  border-top: 3px solid var(--accent);
+}
+
+.card-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.tag {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.6rem;
+  border-radius: 999px;
+}
+
+.industry {
+  font-size: 0.78rem;
+  color: var(--accent);
+  font-weight: 600;
 }
 
 .card h3 {
-  font-size: 1.2rem;
+  font-size: 1.18rem;
   line-height: 1.25;
-  margin: 0 0 0.5rem;
+  margin: 0;
   font-weight: 800;
   letter-spacing: -0.01em;
 }
 
-.card.blurb {
-  margin: 0 0 0.75rem;
-  flex: 1;
+.card .metrics {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--ink);
+  margin: 0.1rem 0 0.4rem;
+  line-height: 1.3;
 }
 
-.card.metrics {
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: var(--accent);
-  margin: 0.5rem 0 1rem;
+.card .blurb {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
 }
 
-.card img {
-  width: 100%;
-  height: auto;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  margin: 0.5rem 0 1rem;
-}
-
-.links {
+.card .outcome {
   display: flex;
+  gap: 0.5rem;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: auto;
-  padding-top: 0.75rem;
+  padding: 0.6rem 0.8rem;
+  background: #f4f7f7;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.92rem;
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.card .outcome .arrow {
+  color: var(--accent);
+  font-weight: 800;
+  flex-shrink: 0;
+  width: 1.1rem;
+}
+
+.card .links {
+  margin-top: 0.2rem;
+  padding-top: 0.6rem;
   border-top: 1px solid var(--line);
 }
 
-.links a {
+.card .links a {
   color: var(--accent);
   font-weight: 600;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   text-decoration: none;
 }
 
-.links a:hover {
-  text-decoration: underline;
-}
+.card .links a:hover { text-decoration: underline; }
 
-/* ---------- Persona groups ---------- */
+/* ---------- Persona groups (All projects) ---------- */
 
 .persona-groups {
   display: grid;
@@ -181,27 +230,77 @@ section {
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 12px;
-  padding: 1.25rem;
+  padding: 1rem;
   box-shadow: var(--shadow);
   border-top: 3px solid var(--persona-accent);
 }
 
-.persona-group h3 {
-  font-size: 1.1rem;
-  margin: 0 0 0.4rem;
-  font-weight: 800;
-}
-
 .persona-group .tag {
-  font-size: 0.75rem;
-  margin: 0 0 0.5rem;
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 0.4rem;
 }
 
-.persona-group .blurb {
-  font-size: 0.95rem;
-  margin: 0 0 0.75rem;
-  flex: 1;
+.persona-group h3 {
+  font-size: 1.05rem;
+  margin: 0 0 0.5rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
 }
+
+.persona-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.mini-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.8rem 0.9rem;
+  background: #fafbf9;
+}
+
+.mini-card .mini-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.25rem;
+}
+
+.mini-card .mini-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 0.3rem;
+}
+
+.mini-card .mini-blurb {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0 0 0.5rem;
+  line-height: 1.45;
+}
+
+.mini-card .mini-links {
+  margin: 0;
+  padding-top: 0.4rem;
+  border-top: 1px solid var(--line);
+}
+
+.mini-card .mini-links a {
+  font-size: 0.82rem;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.mini-card .mini-links a:hover { text-decoration: underline; }
 
 /* ---------- Skills ---------- */
 
@@ -209,9 +308,7 @@ section {
   padding: 1.5rem 0;
 }
 
-.skills h2 {
-  margin-bottom: 0.75rem;
-}
+.skills h2 { margin-bottom: 0.75rem; }
 
 .skills-grid {
   display: grid;
@@ -233,14 +330,9 @@ section {
 
 /* ---------- About ---------- */
 
-.about {
-  padding: 1.5rem 0;
-}
+.about { padding: 1.5rem 0; }
 
-.about p {
-  margin: 0 0 1rem;
-  max-width: 64ch;
-}
+.about p { margin: 0 0 1rem; max-width: 64ch; }
 
 /* ---------- Contact / footer ---------- */
 
@@ -251,29 +343,16 @@ footer.contact {
   padding-bottom: 2.5rem;
 }
 
-footer.contact h2 {
-  margin-bottom: 0.5rem;
-}
+footer.contact h2 { margin-bottom: 0.5rem; }
 
-footer.contact p {
-  margin: 0;
-}
+footer.contact p { margin: 0; }
 
-footer.contact a {
-  color: var(--accent);
-  font-weight: 600;
-}
+footer.contact a { color: var(--accent); font-weight: 600; }
 
-footer.contact a:hover {
-  text-decoration: underline;
-}
+footer.contact a:hover { text-decoration: underline; }
 
 @media (max-width: 640px) {
-  .project-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .persona-groups {
-    grid-template-columns: 1fr;
-  }
+  .project-grid { grid-template-columns: 1fr; }
+  .persona-group { padding: 0.8rem; }
+  .persona-cards { grid-template-columns: 1fr; }
 }
